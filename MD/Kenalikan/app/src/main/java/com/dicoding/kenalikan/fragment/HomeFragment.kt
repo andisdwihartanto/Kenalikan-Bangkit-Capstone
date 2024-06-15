@@ -34,6 +34,9 @@ class HomeFragment : Fragment() {
 
         fetchWeatherData("Jakarta")
         searchCity()
+
+        binding.ivProfile.setOnClickListener {
+        }
     }
     private fun searchCity() {
         val searchView = binding.svSearch
@@ -101,6 +104,5 @@ class HomeFragment : Fragment() {
 
         }
         isRemoving
-
     }
 }
