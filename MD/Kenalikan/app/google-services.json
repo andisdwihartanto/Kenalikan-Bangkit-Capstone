@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "562984826525",
+    "project_id": "kenalikan",
+    "storage_bucket": "kenalikan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562984826525:android:6edbd774ce7d898e790674",
+        "android_client_info": {
+          "package_name": "com.dicoding.kenalikan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_6jBj-66UPP5p3bUXw31vBISPH-tX6Nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Kenalikan</string>
+    <string name="welcome">Selamat datang \n di Kenalikan</string>
+    <string name="welcome_home">Selamat datang</string>
+    <string name="prelogin">Sudah punya akun</string>
+    <string name="register">Daftar akun</string>
+    <string name="login">LOGIN</string>
+    <string name="login_text1">Silahkan Masukkan \n no.telp yang terdaftar</string>
+    <string name="message_login_page">Masukan Data untuk login</string>
+    <string name="no_tel">Email/No Telepon</string>
+    <string name="password">Password</string>
+    <string name="title_signup_page">Masukkan data \n untuk mendaftar</string>
+    <string name="name">Nama Lengkap</string>
+    <string name="logout">Keluar</string>
+    <string name="crop">Crop</string>
+    <string name="camera">Camera</string>
+    <string name="galeri">Import</string>
+    <string name="analyze">Analyze</string>
+    <string name="tv_cuaca">cuaca hari ini</string>
+    <string name="result">Hasil\n</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
