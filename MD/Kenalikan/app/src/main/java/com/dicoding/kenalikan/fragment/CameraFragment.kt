@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dicoding.kenalikan.databinding.FragmentCameraBinding
 
-class CameraFragment : Fragment() {
+class   CameraFragment : Fragment() {
     private lateinit var _binding: FragmentCameraBinding
     private val binding get() = _binding
     private var currentImageUri: Uri? = null
