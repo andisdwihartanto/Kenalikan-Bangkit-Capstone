@@ -1,5 +1,6 @@
 package com.dicoding.kenalikan
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -70,9 +71,6 @@ class MainActivity : AppCompatActivity() {
             }
             replaceFragment(HomeFragment())
         }
-
-
-
         private fun replaceFragment(fragment: Fragment) {
             supportFragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit()
         }
