@@ -34,9 +34,6 @@ class HomeFragment : Fragment() {
 
         fetchWeatherData("Jakarta")
         searchCity()
-
-        binding.ivProfile.setOnClickListener {
-        }
     }
     private fun searchCity() {
         val searchView = binding.svSearch
@@ -73,7 +70,6 @@ class HomeFragment : Fragment() {
 
                     binding.tvTemperature.text= "$temperature °C"
                     binding.tvWindspeed.text = "$windSpeed m/s"
-                    binding.tvWaves.text = "$seaLevel sPh"
                     binding.tvCondition.text = condition
                     binding.tvCity.text = "$cityName"
 
@@ -90,16 +86,16 @@ class HomeFragment : Fragment() {
 
         when (conditions){
             "Clear Sky", "Sunny", "Clear" ->{
-                binding.ivWeather.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_sun))
+                binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_sun))
             }
             "Partly Clouds", "Clouds", "Overcast", "Mist", "Foggy" -> {
-                binding.ivWeather.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_clouds))
+                binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_clouds))
             }
             "Thunderstorm" ,"Rain", "Light Rain", "Drizzle", "Moderate Rain", "Showers", "Heavy Rain" -> {
-                binding.ivWeather.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_rain))
+                binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_rain))
             }
             else ->{
-                binding.ivWeather.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_sun))
+                binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_sun))
             }
 
         }

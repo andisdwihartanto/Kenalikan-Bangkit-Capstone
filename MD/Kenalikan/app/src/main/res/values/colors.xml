@@ -6,4 +6,7 @@
     <color name="light_blue">#2597FB</color>
     <color name="dark_blue">#0068C2</color>
     <color name="darker_blue">#165995</color>
+    <color name="dark_purple">#342B6B</color>
+    <color name="fade_blue">#AFC6E7</color>
+
 </resources>
