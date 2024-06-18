@@ -1,6 +1,7 @@
 package com.dicoding.kenalikan.fragment
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -13,8 +14,18 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.kenalikan.MainActivity
+import com.dicoding.kenalikan.R
+import com.dicoding.kenalikan.ResultActivity
 import com.dicoding.kenalikan.databinding.FragmentCameraBinding
+import com.dicoding.kenalikan.retrofit.ApiConfig
+import com.google.gson.Gson
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import retrofit2.HttpException
 
 class CameraFragment : Fragment() {
     private var _binding: FragmentCameraBinding? = null
@@ -74,6 +85,7 @@ class CameraFragment : Fragment() {
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
+        binding.analyzeButton.setOnClickListener { uploadImage() }
     }
 
     private fun startGallery() {
@@ -92,6 +104,40 @@ class CameraFragment : Fragment() {
         }
     }
 
+    private fun uploadImage() {
+        currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri, requireContext()).reduceFileImage()
+            Log.d("Image Classification File", "showImage: ${imageFile.path}")
+            showLoading(true)
+
+            val requestImageFile = imageFile.asRequestBody("image/jpg".toMediaType())
+            val multipartBody = MultipartBody.Part.createFormData(
+                "image",
+                imageFile.name,
+                requestImageFile
+            )
+
+            lifecycleScope.launch {
+                try {
+                    val apiService = ApiConfig.getApiService()
+                    val fishResponse = apiService.uploadImage(multipartBody)
+
+                    val fishName = fishResponse.name
+                    val fishDescription = fishResponse.description
+
+                    val intent = Intent(requireContext(), ResultActivity::class.java)
+                    intent.putExtra(EXTRA_IMAGE_URI, currentImageUri.toString())
+                    intent.putExtra(EXTRA_FISH_NAME, fishName)
+                    intent.putExtra(EXTRA_FISH_DESCRIPTION, fishDescription)
+                    startActivity(intent)
+                    showLoading(false)
+                } catch (e: HttpException) {
+                    showLoading(false)
+                }
+            }
+        } ?: showToast(getString(R.string.empty_image_warning))
+    }
+
     private fun showLoading(isLoading: Boolean) {
         binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
@@ -107,5 +153,8 @@ class CameraFragment : Fragment() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+        const val EXTRA_IMAGE_URI = "EXTRA_IMAGE_URI"
+        const val EXTRA_FISH_NAME = "EXTRA_FISH_NAME"
+        const val EXTRA_FISH_DESCRIPTION = "EXTRA_FISH_DESCRIPTION"
     }
 }
