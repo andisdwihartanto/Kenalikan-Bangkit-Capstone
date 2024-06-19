@@ -8,8 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dicoding.kenalikan.databinding.ActivityResultBinding
+import java.util.concurrent.locks.Condition
 
 class ResultActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityResultBinding
 
     private lateinit var imageView: ImageView
     private lateinit var fishNameTextView: TextView
@@ -33,6 +36,15 @@ class ResultActivity : AppCompatActivity() {
         }
         fishNameTextView.text = fishName
         fishDescriptionTextView.text = fishDescription
+
+    }
+
+    private fun marketPrice(condition: String) {
+        when(condition){
+            "Red Mullet" ->{
+                binding.fishPrice.text = "RP. 20.000"
+            }
+        }
     }
 
     companion object {

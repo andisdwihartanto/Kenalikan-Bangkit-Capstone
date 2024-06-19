@@ -7,19 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.databinding.FragmentHomeBinding
-import com.dicoding.kenalikan.retrofit.ApiService
 import com.dicoding.kenalikan.weatherclass.WeatherTools
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.Callback
-import retrofit2.Call
-import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
     private val binding get() = _binding
+    private lateinit var viewModel: HomeViewModel
+    private var currentCityName: String = "Jakarta"
+    private val CURRENT_CITY_KEY = "current_city_key"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +31,31 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fetchWeatherData("Jakarta")
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+
+        savedInstanceState?.let {
+            currentCityName = it.getString(CURRENT_CITY_KEY, "Jakarta") ?: "Bandung"
+        }
+
+        val lastSearchedCityName = viewModel.savedStateHandle.get<String>(viewModel.lastSearchedCityNameKey)
+        if (!lastSearchedCityName.isNullOrEmpty()) {
+            fetchWeatherData(lastSearchedCityName)
+        }
+
+        fetchWeatherData(currentCityName)
         searchCity()
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(CURRENT_CITY_KEY, currentCityName)
+        super.onSaveInstanceState(outState)
+    }
+
     private fun searchCity() {
         val searchView = binding.svSearch
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
+                if (!query.isNullOrEmpty()) {
                     fetchWeatherData(query)
                 }
                 return true
@@ -48,40 +64,34 @@ class HomeFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return true
             }
-
         })
     }
 
-    private fun fetchWeatherData(cityName:String) {
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.openweathermap.org/data/2.5/")
-            .build().create(ApiService::class.java)
-        val response = retrofit.getWeatherData(cityName, "89efb9d28d18dc6a9d8c64a9d214cc59", "metric")
-        response.enqueue(object : Callback<WeatherTools> {
-            override fun onResponse(call: Call<WeatherTools>, response: Response<WeatherTools>) {
-                val responseBody = response.body()
-                if (response.isSuccessful && responseBody != null) {
-                    val temperature = responseBody.main.temp.toString()
-                    val windSpeed = responseBody.wind.speed
-                    val seaLevel = responseBody.main.pressure
-                    val condition = responseBody.weather.firstOrNull()?.main?: "unknown"
-
-
-                    binding.tvTemperature.text= "$temperature °C"
-                    binding.tvWindspeed.text = "$windSpeed m/s"
-                    binding.tvCondition.text = condition
-                    binding.tvCity.text = "$cityName"
-
-                    changeImagesAccordingToWeatherCondition(condition)
-                }
-            }
-
-            override fun onFailure(call: Call<WeatherTools>, t: Throwable) {
-                TODO("Not yet implement ed")
+    private fun fetchWeatherData(cityName: String) {
+        viewModel.fetchWeatherData(cityName)
+        viewModel.weatherData.observe(viewLifecycleOwner, Observer { weatherData ->
+            weatherData?.let {
+                updateUI(weatherData, cityName)
             }
         })
     }
+
+    private fun updateUI(weatherData: WeatherTools, cityName: String) {
+        currentCityName = cityName
+        binding.apply {
+            val temperature = weatherData.main.temp.toString()
+            val windSpeed = weatherData.wind.speed
+            val condition = weatherData.weather.firstOrNull()?.main ?: "unknown"
+
+            tvTemperature.text = "$temperature °C"
+            tvWindspeed.text = "$windSpeed m/s"
+            tvCondition.text = condition
+            tvCity.text = cityName
+
+            changeImagesAccordingToWeatherCondition(condition)
+        }
+    }
+
     private fun changeImagesAccordingToWeatherCondition(conditions: String) {
 
         when (conditions){
