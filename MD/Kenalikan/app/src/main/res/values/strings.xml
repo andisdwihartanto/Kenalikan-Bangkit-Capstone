@@ -20,4 +20,30 @@
     <string name="result">Hasil\n</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="empty_image_warning">Isi dulu</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+    <!-- Sewa Kapal-->
+    <string-array name="data_name">
+        <item>Sewa Kapal Mancing dan Privat Tour Pulau Seribu Jakarta</item>
+        <item>Pangkalan Service Bout Arsa</item>
+        <item>Service Boat Arung Samudera</item>
+        <item>KM QueenzA Sewa Kapal Mancing</item>
+        <item>Pangkalan perahu mancing Kalibaru</item>
+    </string-array>
+
+    <string-array name="data_description">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/image_kapal1</item>
+        <item>@drawable/image_kapal2</item>
+        <item>@drawable/image_kapal3</item>
+        <item>@drawable/image_kapal4</item>
+        <item>@drawable/image_kapal5</item>
+    </integer-array>
 </resources>
