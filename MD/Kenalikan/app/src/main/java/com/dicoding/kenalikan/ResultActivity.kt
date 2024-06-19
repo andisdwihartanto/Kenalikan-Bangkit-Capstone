@@ -13,7 +13,6 @@ import java.util.concurrent.locks.Condition
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
-
     private lateinit var imageView: ImageView
     private lateinit var fishNameTextView: TextView
     private lateinit var fishDescriptionTextView: TextView
@@ -37,14 +36,14 @@ class ResultActivity : AppCompatActivity() {
         fishNameTextView.text = fishName
         fishDescriptionTextView.text = fishDescription
 
-    }
+//        if(fishName == "Red Mullet") {
+//            binding.fishPrice.text = "Rp 100.000/100gram"
+//        }
 
-    private fun marketPrice(condition: String) {
-        when(condition){
-            "Red Mullet" ->{
-                binding.fishPrice.text = "RP. 20.000"
-            }
-        }
+//        when(fishName) {
+//            "Red Mullet" -> binding.fishPrice.text = "RP 100.000/100gram"
+//        }
+
     }
 
     companion object {

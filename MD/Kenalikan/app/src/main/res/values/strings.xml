@@ -32,11 +32,61 @@
     </string-array>
 
     <string-array name="data_description">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>
+            Menawarkan sewa kapal mancing untuk berbagai jenis ikan di Kepulauan Seribu. Menyediakan paket wisata mancing lengkap dengan pemandu,
+            peralatan pancing, dan akomodasi. Juga melayani private tour untuk kelompok kecil atau keluarga.
+            \n\nJenis Kapal dan Harga:
+            \n-Kapal Mancing Standar (4-6 orang):\n  Rp. 1.500.000/hari
+            \n-Kapal Mancing VIP (7-10 orang): \n  Rp. 2.500.000/hari
+            \n\nAlat Pancing dan Harga:
+            \n-Set Joran Pancing: \n  Rp. 200.000/hari
+            \n-Reel Pancing: \n  Rp. 100.000/hari
+            \n-Senar Pancing: \n  Rp. 50.000/roll
+            \n-Umpan Pancing: \n  Rp. 100.000/kg
+        </item>
+        <item>
+            Menjual dan menyewakan berbagai jenis kapal, termasuk kapal mancing. Menyediakan jasa service dan perbaikan kapal,
+            serta menjual alat-alat pancing dan aksesoris lainnya.
+            \n\nJenis Kapal dan Harga:
+            \n-Kapal Mancing Fiberglass (4-6 orang):\n  Rp. 1.000.000/hari
+            \n-Kapal Mancing Kayu (2-4 orang):\n  Rp. 700.000/hari
+            \n-Speedboat (8-12 orang):\n  Rp. 2.000.000/hari
+            \n\nAlat Pancing dan Harga:
+            \n-Set Joran Pancing Lengkap:\n  Rp. 350.000/hari
+            \n-Reel Pancing Elektrik:\n  Rp. 250.000/hari
+            \n-Fish Finder:\n  Rp. 150.000/hari
+            \n-ooler Box:\n  Rp. 100.000/hari
+        </item>
+        <item>
+            Menyediakan jasa service dan perbaikan kapal, termasuk kapal mancing. Menjual suku cadang dan aksesoris kapal,
+            serta melayani bongkar pasang mesin kapal.
+            \n\nLayanan:
+            \n-Service mesin kapal
+            \n-Perbaikan fiberglass dan kayu
+            \n-Pemasangan aksesoris kapal
+            \n-Bongkar pasang mesin kapal
+            \n\nHarga:
+            \n-Tergantung jenis layanan dan kerusakan kapal
+        </item>
+        <item>
+            Menyewakan kapal mancing dengan berbagai ukuran dan fasilitas, menawarkan paket mancing ke berbagai spot mancing di Kepulauan Seribu,
+            menyediakan peralatan pancing dan crew yang berpengalaman.
+            \n\nJenis Kapal dan Harga:
+            \n-Kapal Mancing Standar (6-8 orang):\n  Rp. 1.200.000/hari
+            \n-Kapal Mancing VIP (10-12 orang):\n  Rp. 2.000.000/hari
+            \n-Yacht Mewah (15-20 orang):\n  Rp. 5.000.000/hari
+            \n\nAlat Pancing dan Harga:
+            \n-Live Bait: Rp. 200.000/kg
+            \n-GPS Marine: Rp. 300.000/hari
+            \n-Drone Kamera: Rp. 1.000.000/hari
+        </item>
+        <item>
+            Menyewakan perahu mancing dengan harga terjangkau, terletak di kawasan Kalibaru, Jakarta Utara, mudah diakses dan dekat dengan berbagai tempat wisata.
+            \n\nJenis Kapal dan Harga:
+            \n-Perahu Mancing Kecil (2-3 orang):\n  Rp. 500.000/hari
+            \n-Perahu Mancing Sedang (4-5 orang):\n  Rp. 700.000/hari
+            \n-Perahu Mancing Besar (6-8 orang):\n  Rp. 900.000/hari
+        </item>
     </string-array>
 
     <integer-array name="data_photo">
