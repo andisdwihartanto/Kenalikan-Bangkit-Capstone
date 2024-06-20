@@ -34,7 +34,6 @@ class CameraFragment : Fragment() {
     private val binding get() = _binding!!
     private var currentImageUri: Uri? = null
 
-    // Registering for activity result in property initialization
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->

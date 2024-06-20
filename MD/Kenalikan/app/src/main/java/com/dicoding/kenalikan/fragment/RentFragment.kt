@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.kenalikan.R
-import com.dicoding.kenalikan.data.RentFeat.DescActivity
-import com.dicoding.kenalikan.data.RentFeat.RentAdapter
+import com.dicoding.kenalikan.data.rentfeat.DescActivity
+import com.dicoding.kenalikan.data.rentfeat.RentAdapter
 import com.dicoding.kenalikan.retrofit.RentResponse
 
 class RentFragment : Fragment() {

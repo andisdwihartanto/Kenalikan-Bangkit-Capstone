@@ -1,4 +1,4 @@
-package com.dicoding.kenalikan.data.RentFeat
+package com.dicoding.kenalikan.data.rentfeat
 
 import android.view.LayoutInflater
 import android.view.View

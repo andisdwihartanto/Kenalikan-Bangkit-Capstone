@@ -13,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kenalikan.ProfileActivity
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.databinding.FragmentHomeBinding
-import com.dicoding.kenalikan.weatherclass.Clouds
 import com.dicoding.kenalikan.weatherclass.WeatherTools
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

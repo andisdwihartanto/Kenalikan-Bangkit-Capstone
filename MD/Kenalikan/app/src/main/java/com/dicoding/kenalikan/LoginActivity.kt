@@ -3,11 +3,8 @@ package com.dicoding.kenalikan
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.dicoding.kenalikan.data.preference.UserModel
 import com.dicoding.kenalikan.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth

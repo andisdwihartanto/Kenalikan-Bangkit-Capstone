@@ -20,7 +20,7 @@
         android:theme="@style/Theme.Kenalikan"
         tools:targetApi="31">
         <activity
-            android:name=".data.RentFeat.DescActivity"
+            android:name=".data.rentfeat.DescActivity"
             android:exported="false" />
 
         <meta-data

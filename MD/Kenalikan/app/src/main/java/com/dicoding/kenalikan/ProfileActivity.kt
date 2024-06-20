@@ -21,15 +21,12 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Get the email from the intent
         userEmail = intent.getStringExtra("USER_EMAIL") ?: ""
 
-        // Display the email if passed via intent
         if (userEmail.isNotEmpty()) {
             binding.tvName.text = userEmail
         }
 
-        // Observing session data from ViewModel
         viewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
                 binding.tvName.text = user.email
