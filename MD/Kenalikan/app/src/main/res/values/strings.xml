@@ -13,7 +13,7 @@
     <string name="name">Nama Lengkap</string>
     <string name="logout">Keluar</string>
     <string name="crop">Crop</string>
-    <string name="camera">Camera</string>
+    <string name="camera">Kamera</string>
     <string name="galeri">Galeri</string>
     <string name="analyze">Analyze</string>
     <string name="tv_cuaca">cuaca hari ini</string>
@@ -21,6 +21,29 @@
     <string name="empty_image_warning">Isi dulu</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="not_found_img">Masukkan Foto Dulu</string>
+    <string name="nama_tempat">Nama Tempat</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="keluar">Keluar</string>
+    <string name="beranda">Beranda</string>
+    <string name="no_telp">+62 ************</string>
+    <string name="nama">Nama</string>
+    <string name="harga_pasar">Harga Pasar</string>
+    <string name="perkiraan_harga_pasar">Perkiraan Harga Pasar</string>
+    <string name="deskripsi_ikan">deskripsi ikan</string>
+    <string name="name_of_fish">Name of fish</string>
+    <string name="jenis_ikan">Jenis Ikan</string>
+    <string name="hasil">Hasil</string>
+    <string name="rent_title"><![CDATA[Rekomendasi Tempat\nSewa Kapal & alat]]></string>
+    <string name="cerah_berawan">Cerah Berawan</string>
+    <string name="title_suhu">Suhu</string>
+    <string name="isi_temperatur">23.12 C°</string>
+    <string name="kota">Jakarta</string>
+    <string name="kecepatan_angin">Kecepatan Angin</string>
+    <string name="isi_kecepatan">00.00 m/s</string>
+    <string name="matahari_terbit">Matahari Terbit</string>
+    <string name="jam_terbit">05.30 WIB</string>
+    <string name="matahari_terbenam">Matahari Terbenam</string>
+    <string name="jam_terbenam">17.45 WIB</string>
 
     <!-- Sewa Kapal-->
     <string-array name="data_name">

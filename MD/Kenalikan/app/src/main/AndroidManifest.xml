@@ -20,7 +20,7 @@
         android:theme="@style/Theme.Kenalikan"
         tools:targetApi="31">
         <activity
-            android:name=".data.rentfeat.DescActivity"
+            android:name=".ui.rentfeat.DescActivity"
             android:exported="false" />
 
         <meta-data
@@ -28,20 +28,20 @@
             android:value="AIzaSyCCPrsx2vHNDR9i4Uxr_lIwnjYCBPqvTpwAIzaSyCCPrsx2vHNDR9i4Uxr_lIwnjYCBPqvTpw" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".ui.maps.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".ui.result.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".weatherclass.WelcomeActivity"
+            android:name=".data.weatherclass.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.splashscreen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,13 +50,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".ui.signup.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
 
         <activity

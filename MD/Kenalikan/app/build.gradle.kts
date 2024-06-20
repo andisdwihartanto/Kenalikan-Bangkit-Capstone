@@ -20,6 +20,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", "\"https://kenalikan.et.r.appspot.com/\"")
+        buildConfigField("String", "WEATHER_API_BASE_URL", "\"https://api.openweathermap.org/data/2.5/\"")
+
     }
 
     buildTypes {
@@ -71,7 +75,6 @@ dependencies {
     implementation("androidx.camera:camera-camera2:1.3.0")
     implementation("androidx.camera:camera-lifecycle:1.3.0")
     implementation("androidx.camera:camera-view:1.3.0")
-    implementation("androidx.exifinterface:exifinterface:1.3.6")
 
     implementation ("com.github.yalantis:ucrop:2.2.8")
     

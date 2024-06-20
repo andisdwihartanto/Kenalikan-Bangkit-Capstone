@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kenalikan.data.UserRepository
 import com.dicoding.kenalikan.di.Injection
+import com.dicoding.kenalikan.ui.login.LoginViewModel
+import com.dicoding.kenalikan.ui.main.MainViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 

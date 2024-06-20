@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.HomeFragment"
+    tools:context=".ui.fragment.HomeFragment"
     android:background="@drawable/bg_gradient_page">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +47,7 @@
         android:src="@drawable/ic_svg_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sv_search"
-        app:tint="@color/white" />
+        app:tint="@color/fade_blue" />
 
     <TextView
         android:id="@+id/tvCity"
@@ -56,9 +56,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Jakarta"
+        android:text="@string/kota"
         android:textSize="32sp"
-        android:textColor="@color/white"
+        android:textColor="@color/fade_blue"
         app:layout_constraintStart_toEndOf="@+id/ivLocation"
         app:layout_constraintTop_toBottomOf="@+id/sv_search" />
 
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_medium"
-        android:text="Cerah Berawan"
+        android:text="@string/cerah_berawan"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"
@@ -111,7 +111,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Suhu"
+        android:text="@string/title_suhu"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/ivTemp"
         app:layout_constraintTop_toTopOf="@+id/ivContain1" />
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="23.12 C°"
+        android:text="@string/isi_temperatur"
         android:textSize="24sp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -153,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Kecepatan Angin"
+        android:text="@string/kecepatan_angin"
         android:textSize="12sp"
         android:layout_marginTop="8dp"
         android:layout_marginStart="20dp"
@@ -165,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="00.00 m/s"
+        android:text="@string/isi_kecepatan"
         android:textSize="24sp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -196,7 +196,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Matahari Terbit"
+        android:text="@string/matahari_terbit"
         android:textSize="12sp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="8dp"
@@ -208,7 +208,7 @@
         android:id="@+id/tv_Sunrise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="05.30 WIB"
+        android:text="@string/jam_terbit"
         android:textSize="24sp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginStart="20dp"
@@ -240,7 +240,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Matahari Terbenam"
+        android:text="@string/matahari_terbenam"
         android:textSize="12sp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="8dp"
@@ -252,7 +252,7 @@
         android:id="@+id/tv_Sunset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="17.45 WIB"
+        android:text="@string/jam_terbenam"
         android:textSize="24sp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginStart="20dp"

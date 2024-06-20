@@ -1,6 +1,7 @@
 package com.dicoding.kenalikan.retrofit
 
-import com.dicoding.kenalikan.weatherclass.WeatherTools
+import com.dicoding.kenalikan.data.weatherclass.WeatherTools
+import com.dicoding.kenalikan.response.PostResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.GET
