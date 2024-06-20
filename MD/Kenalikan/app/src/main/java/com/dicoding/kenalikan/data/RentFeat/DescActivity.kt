@@ -11,12 +11,6 @@ import com.dicoding.kenalikan.databinding.ActivityDescBinding
 
 class DescActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDescBinding
-
-    companion object {
-        const val EXTRA_IMAGE = "extra_image"
-        const val EXTRA_PLACE = "extra_place"
-        const val EXTRA_DESC = "extra_desc"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDescBinding.inflate(layoutInflater)
@@ -34,16 +28,18 @@ class DescActivity : AppCompatActivity() {
         tvDataPlace.text = place
         tvDataDesc.text = desc
 
-
         binding.fabMaps.setOnClickListener {
             startMapActivity()
         }
-
-
     }
-
     private fun startMapActivity() {
         val intent = Intent(this, MapsActivity::class.java)
         startActivity(intent)
+    }
+
+    companion object {
+        const val EXTRA_IMAGE = "extra_image"
+        const val EXTRA_PLACE = "extra_place"
+        const val EXTRA_DESC = "extra_desc"
     }
 }

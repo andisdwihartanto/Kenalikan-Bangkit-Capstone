@@ -1,5 +1,6 @@
 package com.dicoding.kenalikan.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.kenalikan.ProfileActivity
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.databinding.FragmentHomeBinding
 import com.dicoding.kenalikan.weatherclass.WeatherTools
@@ -44,6 +46,11 @@ class HomeFragment : Fragment() {
         val lastSearchedCityName = viewModel.savedStateHandle.get<String>(viewModel.lastSearchedCityNameKey)
         if (!lastSearchedCityName.isNullOrEmpty()) {
             fetchWeatherData(lastSearchedCityName)
+        }
+
+        binding.idProfile.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         fetchWeatherData(currentCityName)

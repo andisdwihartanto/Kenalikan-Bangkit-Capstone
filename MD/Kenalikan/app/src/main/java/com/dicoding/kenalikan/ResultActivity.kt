@@ -13,17 +13,16 @@ import java.util.concurrent.locks.Condition
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
-    private lateinit var imageView: ImageView
-    private lateinit var fishNameTextView: TextView
-    private lateinit var fishDescriptionTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_result)
+        binding = ActivityResultBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        imageView = findViewById(R.id.viewImage)
-        fishNameTextView = findViewById(R.id.typeFish)
-        fishDescriptionTextView = findViewById(R.id.fishDesc)
+        val imageView = binding.viewImage
+        val fishNameTextView = binding.typeFish
+        val fishDescriptionTextView = binding.fishDesc
+        val fishPriceTextView = binding.fishPrice
 
         val imageUriString = intent.getStringExtra(EXTRA_IMAGE_URI)
         val fishName = intent.getStringExtra(EXTRA_FISH_NAME)
@@ -31,19 +30,23 @@ class ResultActivity : AppCompatActivity() {
 
         if (imageUriString != null) {
             val imageUri = Uri.parse(imageUriString)
-            imageView.setImageURI(imageUri) // Load original image into ImageView
+            imageView.setImageURI(imageUri)
         }
         fishNameTextView.text = fishName
         fishDescriptionTextView.text = fishDescription
 
-//        if(fishName == "Red Mullet") {
-//            binding.fishPrice.text = "Rp 100.000/100gram"
-//        }
-
-//        when(fishName) {
-//            "Red Mullet" -> binding.fishPrice.text = "RP 100.000/100gram"
-//        }
-
+        when (fishName) {
+            "Red Mullet" -> fishPriceTextView.text = "RP 100.000/100gram"
+            "Red Sea Bream" -> fishPriceTextView.text = "RP 200.000/100gram"
+            "Hourse Mackerel" -> fishPriceTextView.text = "RP 150.000/100gram"
+            "Gilt-Head Bream" -> fishPriceTextView.text = "RP 100.000/100gram"
+            "Black Sea Sprat" -> fishPriceTextView.text = "RP 200.000/100gram"
+            "Trout" -> fishPriceTextView.text = "RP 150.000/100gram"
+            "Striped Red Mullet" -> fishPriceTextView.text = "RP 100.000/100gram"
+            "Shrimp" -> fishPriceTextView.text = "RP 200.000/100gram"
+            "Sea Bass" -> fishPriceTextView.text = "RP 150.000/100gram"
+            else -> fishPriceTextView.text = "Price not available"
+        }
     }
 
     companion object {

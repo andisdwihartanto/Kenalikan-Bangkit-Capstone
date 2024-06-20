@@ -33,21 +33,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//            binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.idProfile -> {
-//
-//                    true
-//                }
-//                R.id.idKeluar -> {
-//                    val intent = Intent(this, WelcomeActivity::class.java)
-//                    startActivity(intent)
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-
             bottomNavigationView = findViewById(R.id.bottomNav)
             bottomNavigationView.setOnItemSelectedListener { menuItem ->
                 when (menuItem.itemId) {
