@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kenalikan.ProfileActivity
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.databinding.FragmentHomeBinding
+import com.dicoding.kenalikan.weatherclass.Clouds
 import com.dicoding.kenalikan.weatherclass.WeatherTools
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -100,8 +101,8 @@ class HomeFragment : Fragment() {
             tvWindspeed.text = "$windSpeed m/s"
             tvCondition.text = condition
             tvCity.text = cityName
-            tvSunrise.text = "${time(sunRise)} WIB"
-            tvSunset.text = "${time(sunSet)} WIB"
+            tvSunrise.text = "${time(sunRise)}"
+            tvSunset.text = "${time(sunSet)}"
  
 
             changeImagesAccordingToWeatherCondition(condition)
@@ -119,7 +120,7 @@ class HomeFragment : Fragment() {
             "Clear Sky", "Sunny", "Clear" ->{
                 binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_sun))
             }
-            "Partly Clouds", "Clouds", "Overcast", "Mist", "Foggy" -> {
+            "Haze", "Partly Clouds", "Clouds", "Overcast", "Mist", "Foggy" -> {
                 binding.ivWeatherIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.svg_clouds))
             }
             "Thunderstorm" ,"Rain", "Light Rain", "Drizzle", "Moderate Rain", "Showers", "Heavy Rain" -> {

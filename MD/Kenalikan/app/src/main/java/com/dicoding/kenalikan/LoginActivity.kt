@@ -33,11 +33,12 @@ class LoginActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) {task ->
-                        if(task.isSuccessful){
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
                             viewModel.saveSession(UserModel(email, "sample_token"))
                             Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, MainActivity::class.java)
+                            intent.putExtra("USER_EMAIL", email) // Pass the email
                             startActivity(intent)
                             finish()
                         } else {

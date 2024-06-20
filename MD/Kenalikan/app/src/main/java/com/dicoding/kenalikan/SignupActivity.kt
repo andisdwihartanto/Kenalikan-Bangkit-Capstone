@@ -11,7 +11,6 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -25,10 +24,11 @@ class SignupActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) {task ->
-                        if(task.isSuccessful){
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
                             Toast.makeText(this, "Daftar Telah Berhasil!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, LoginActivity::class.java)
+                            intent.putExtra("USER_EMAIL", email) // Pass the email
                             startActivity(intent)
                             finish()
                         } else {
