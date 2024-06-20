@@ -58,6 +58,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.Kenalikan"/>
     </application>
+
+
 
 </manifest>

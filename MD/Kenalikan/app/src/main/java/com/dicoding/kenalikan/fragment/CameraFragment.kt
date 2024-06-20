@@ -1,8 +1,10 @@
 package com.dicoding.kenalikan.fragment
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,17 +17,17 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import com.dicoding.kenalikan.MainActivity
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.ResultActivity
 import com.dicoding.kenalikan.databinding.FragmentCameraBinding
 import com.dicoding.kenalikan.retrofit.ApiConfig
-import com.google.gson.Gson
+import com.yalantis.ucrop.UCrop
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
+import java.io.File
 
 class CameraFragment : Fragment() {
     private var _binding: FragmentCameraBinding? = null
@@ -86,6 +88,14 @@ class CameraFragment : Fragment() {
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
         binding.analyzeButton.setOnClickListener { uploadImage() }
+
+        binding.cropButton.setOnClickListener {
+            if (currentImageUri != null) {
+                cropImage()
+            } else {
+                showToast(getString(R.string.not_found_img))
+            }
+        }
     }
 
     private fun startGallery() {
@@ -144,6 +154,38 @@ class CameraFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun cropImage() {
+        currentImageUri?.let { uri ->
+            val destinationUri = Uri.fromFile(File(requireContext().cacheDir, "cropped_image"))
+            val options = UCrop.Options().apply {
+                setCompressionFormat(Bitmap.CompressFormat.PNG)
+                setCompressionQuality(100)
+                setToolbarColor(ContextCompat.getColor(requireContext(), R.color.white))
+                setActiveControlsWidgetColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+            val intent = UCrop.of(uri, destinationUri)
+                .withAspectRatio(16F, 9F)
+                .withMaxResultSize(200, 200)
+                .withOptions(options)
+                .getIntent(requireContext())
+
+            // Start UCrop activity for result
+            startActivityForResult(intent, UCrop.REQUEST_CROP)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
+            val resultUri = UCrop.getOutput(data!!)
+            currentImageUri = resultUri
+            showImage()
+        } else if (resultCode == UCrop.RESULT_ERROR) {
+            val cropError = UCrop.getError(data!!)
+            showToast("Crop failed: $cropError")
+        }
     }
 
     override fun onDestroyView() {

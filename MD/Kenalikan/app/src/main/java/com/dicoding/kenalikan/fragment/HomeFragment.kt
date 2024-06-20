@@ -12,6 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.kenalikan.R
 import com.dicoding.kenalikan.databinding.FragmentHomeBinding
 import com.dicoding.kenalikan.weatherclass.WeatherTools
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HomeFragment : Fragment() {
     private lateinit var _binding: FragmentHomeBinding
@@ -82,14 +86,24 @@ class HomeFragment : Fragment() {
             val temperature = weatherData.main.temp.toString()
             val windSpeed = weatherData.wind.speed
             val condition = weatherData.weather.firstOrNull()?.main ?: "unknown"
+            val sunRise = weatherData.sys.sunrise.toLong()
+            val sunSet = weatherData.sys.sunset.toLong()
 
             tvTemperature.text = "$temperature °C"
             tvWindspeed.text = "$windSpeed m/s"
             tvCondition.text = condition
             tvCity.text = cityName
+            tvSunrise.text = "${time(sunRise)} WIB"
+            tvSunset.text = "${time(sunSet)} WIB"
+
 
             changeImagesAccordingToWeatherCondition(condition)
         }
+    }
+
+    private fun time(timestamp: Long): String {
+        val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+        return sdf.format((Date(timestamp*1000)))
     }
 
     private fun changeImagesAccordingToWeatherCondition(conditions: String) {
