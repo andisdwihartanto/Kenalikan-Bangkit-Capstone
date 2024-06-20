@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.kenalikan.R
+import com.dicoding.kenalikan.data.weatherclass.WelcomeActivity
 import com.dicoding.kenalikan.ui.main.MainActivity
 
 class SplashScreen : AppCompatActivity() {

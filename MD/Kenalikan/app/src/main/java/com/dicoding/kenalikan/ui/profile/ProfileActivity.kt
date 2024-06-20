@@ -14,7 +14,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var userEmail: String
 
-    private val viewModel by viewModels<MainViewModel> {
+    private val viewModel by viewModels<ProfileViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
@@ -33,6 +33,11 @@ class ProfileActivity : AppCompatActivity() {
             if (user.isLogin) {
                 binding.tvName.text = user.email
             }
+
+            if (!user.isLogin) {
+                startActivity(Intent(this, WelcomeActivity::class.java))
+                finish()
+            }
         }
 
         binding.btnHome.setOnClickListener {
@@ -40,8 +45,10 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnExit.setOnClickListener {
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
+            viewModel.logout()
+
+//            val intent = Intent(this, WelcomeActivity::class.java)
+//            startActivity(intent)
         }
     }
 }

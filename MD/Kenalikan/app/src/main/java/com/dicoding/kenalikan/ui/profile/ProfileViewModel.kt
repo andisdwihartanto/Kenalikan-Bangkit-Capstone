@@ -1,4 +1,4 @@
-package com.dicoding.kenalikan.ui.main
+package com.dicoding.kenalikan.ui.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,10 +8,10 @@ import com.dicoding.kenalikan.data.UserRepository
 import com.dicoding.kenalikan.data.preference.UserModel
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: UserRepository) : ViewModel() {
+class ProfileViewModel (private val repository: UserRepository) : ViewModel() {
     fun getSession(): LiveData<UserModel> {
         return repository.getSession().asLiveData()
-        }
+    }
 
     fun logout() {
         viewModelScope.launch {
