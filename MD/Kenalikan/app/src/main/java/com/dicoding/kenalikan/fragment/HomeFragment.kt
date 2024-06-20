@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
             tvCity.text = cityName
             tvSunrise.text = "${time(sunRise)} WIB"
             tvSunset.text = "${time(sunSet)} WIB"
-
+ 
 
             changeImagesAccordingToWeatherCondition(condition)
         }
