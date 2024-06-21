@@ -1,4 +1,4 @@
-# Capstone Bangkit Academy C23-PS248
+# Capstone Bangkit Academy C241-PS401
 ![Kenalikan-Logo]()
 
 ## Introduction
@@ -29,7 +29,7 @@ Kenalikan - Kenalikan is a mobile app for Indonesian anglers, providing accurate
 - [(MD) A009D4KY3771 - Adriansyah Nurrahman - Universitas Gunadarma]
 - [(MD) A009D4KY3977 -  Muhamad Andis Dwi Hartanto – Universitas Gunadarma]
 - [(CC) C010D4KX0055  - Najmi Anasya Calyla  - Universitas Indonesia]
-- [(CC) C010D4KX0066  - Katrina Gisella Sembiring  -  Universitas Indonesia]()
+- [(CC) C010D4KX0066  - Katrina Gisella Sembiring  -  Universitas Indonesia]
 
 ## Repositories
 - [Kenalikan-Machine Learning](https://github.com/andisdwihartanto/Kenalikan-Bangkit-Capstone/tree/main/ML)
