@@ -8,7 +8,9 @@ This repository mainly consist of 2 files :
 2. gambar_ikan is a folder that consist of several fish images from teh dataset and from another source to testing the model
 
 ### How to use the dataset
-Set up in your kaggle acount to connectc in colab with this tutorial https://www.kaggle.com/discussions/general/74235 . after unzipping, we create a folder for each class
+Set up in your kaggle acount to connectc in colab with this tutorial https://www.kaggle.com/discussions/general/74235
+this is the dataset link  https://www.kaggle.com/datasets/crowww/a-large-scale-fish-dataset
+after download and unzipping, create a folder for each class
 
 ### Data Preprocessing for Modelling 
 use the TensorFloe Keras ImageDataGenerator to generate batches of image data for training and testing. Also preprocessing large amount of data
