@@ -13,7 +13,12 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         val imageView = binding.viewImage
+        val imageView2 = binding.imageView2
         val fishNameTextView = binding.typeFish
         val fishDescriptionTextView = binding.fishDesc
         val fishPriceTextView = binding.fishPrice
@@ -25,18 +30,19 @@ class ResultActivity : AppCompatActivity() {
         if (imageUriString != null) {
             val imageUri = Uri.parse(imageUriString)
             imageView.setImageURI(imageUri)
+            imageView2.setImageURI(imageUri)
         }
         fishNameTextView.text = fishName
         fishDescriptionTextView.text = fishDescription
 
         when (fishName) {
             "Red Mullet" -> fishPriceTextView.text = "RP 100.000/100gram"
-            "Red Sea Bream" -> fishPriceTextView.text = "RP 200.000/100gram"
+            "Red Sea Bream" -> fishPriceTextView.text = "RP 225.000/100gram"
             "Hourse Mackerel" -> fishPriceTextView.text = "RP 150.000/100gram"
-            "Gilt-Head Bream" -> fishPriceTextView.text = "RP 100.000/100gram"
-            "Black Sea Sprat" -> fishPriceTextView.text = "RP 200.000/100gram"
+            "Gilt-Head Bream" -> fishPriceTextView.text = "RP 125.000/100gram"
+            "Black Sea Sprat" -> fishPriceTextView.text = "RP 250.000/100gram"
             "Trout" -> fishPriceTextView.text = "RP 150.000/100gram"
-            "Striped Red Mullet" -> fishPriceTextView.text = "RP 100.000/100gram"
+            "Striped Red Mullet" -> fishPriceTextView.text = "RP 175.000/100gram"
             "Shrimp" -> fishPriceTextView.text = "RP 200.000/100gram"
             "Sea Bass" -> fishPriceTextView.text = "RP 150.000/100gram"
             else -> fishPriceTextView.text = "Price not available"
