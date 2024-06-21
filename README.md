@@ -8,7 +8,7 @@
 <br>
 
 ## Introduction
-Kenalikan - Kenalikan is a mobile app for Indonesian anglers, providing accurate weather and local fish data to improve fishing success and safety fishing trip.
+Kenalikan - Kenalikan is a mobile app for Indonesian beginners anglers, providing accurate weather and local fish data to improve fishing success and safety fishing trip.
 
 ## Project Scope & Deliverables:
 ### Project Goal:
