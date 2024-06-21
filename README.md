@@ -1,5 +1,11 @@
 # Capstone Bangkit Academy C241-PS401
-![Kenalikan-Logo]()
+<br />
+<p align="center">
+  <a href="#">
+    <img src="Logo/Mockup.png">
+  </a>
+</p>
+<br>
 
 ## Introduction
 Kenalikan - Kenalikan is a mobile app for Indonesian anglers, providing accurate weather and local fish data to improve fishing success and safety fishing trip.
